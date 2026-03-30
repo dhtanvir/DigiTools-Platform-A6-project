@@ -1,6 +1,7 @@
 
 import './App.css'
 import Banner from './component/Banner/Banner'
+import BannerCount from './component/Banner/BannerCount'
 import Navbar from './component/Navbar/Navbar'
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
     </header>
     <main>
       <Banner/>
+      <BannerCount/>
+
     </main>
 
 
