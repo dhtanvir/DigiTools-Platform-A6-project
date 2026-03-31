@@ -10,7 +10,7 @@ const PricingCardDetails = ({ item }) => {
         className={`w-80  relative rounded-2xl p-6 text-white 
             ${
               item.status === "free"
-                ? "bg-white text-black"
+                ? "bg-[#F9FAFC] text-black"
                 : "bg-linear-to-r from-[#4F39F6] to-[#9514FA]"
             }  shadow-lg hover:scale-105 transition duration-300 space-y-5`}
       >
@@ -40,7 +40,7 @@ const PricingCardDetails = ({ item }) => {
         {/* features list */}
         <ul className="space-y-4 ">
           {item.features.map((feature, i) => (
-            <li key={i} className="flex items-center gap-3 text-gray-600">
+            <li key={i} className="flex items-center gap-3 text-gray-900">
               <LuCircleCheckBig />
               <span>{feature}</span>
             </li>
@@ -51,7 +51,7 @@ const PricingCardDetails = ({ item }) => {
         <button
           className={`w-full ${
             item.status === "free"
-              ? "bg-blue-600 text-white"
+              ? "bg-linear-to-r from-[#4F39F6] to-[#9514FA] text-white"
               : "bg-white text-black"
           } hover:bg-yellow-500 hover:text-white
           font-bold py-4 rounded-4xl 
