@@ -1,6 +1,7 @@
 import React from "react";
 import { LuShoppingCart } from "react-icons/lu";
 import { MdDelete } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const Card = ({ Cards, totalPrice, setCards }) => {
   // console.log(Cards);
@@ -8,16 +9,18 @@ const Card = ({ Cards, totalPrice, setCards }) => {
   const handleDelete = (card) => {
     const upGetCards = Cards.filter((c) => c.id !== card.id);
     setCards(upGetCards);
+    toast.warning(" Deleted Successfully!");
   };
 
   const handleCheckOut = () => {
     setCards([]);
+     toast.warning(" Proceed to Checked Out!");
   };
 
   return (
     <div>
       <div className=" container mx-auto py-10">
-        <div className="  bg-white rounded-lg py-5 shadow-lg px-5">
+        <div className="  bg-white rounded-lg py-10 shadow-lg px-10 ">
           <div>
             <h2 className="text-2xl font-bold ">Your Cart</h2>
           </div>

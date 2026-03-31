@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import { FaCheck } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const ProductCardDetails = ({ model, Cards, setCards }) => {
-
   const { name, description, price, period, tag, features, icon } = model;
 
   const [isSubscribed, setIsSubscribed] = useState(false);
 
   const handleSubscription = () => {
-    
     setIsSubscribed(true);
 
+    const isAlreadySubscribed = Cards.find((card) => card.id === model.id);
+
+    if (isAlreadySubscribed) {
+      toast.warning(" You have already Sales done to this Cards!");
+      return;
+    }
+
     setCards([model, ...Cards]);
+    toast.success(" Sales Done Successfully!");
   };
 
   return (
