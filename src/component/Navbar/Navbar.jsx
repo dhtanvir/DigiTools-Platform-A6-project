@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavLink from "./NavLink";
 import DigiTools_logo from "../../assets/products/DigiTools_log.png";
 
-const Navbar = () => {
+const Navbar = ({Cards , totalPrice }) => {
   const [menuData, setMenuData] = useState([]);
 
   useEffect(() => {
@@ -59,7 +59,8 @@ const Navbar = () => {
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5"
                   />
                 </svg>
-                <span className="badge badge-sm indicator-item">7</span>
+                <span className="badge badge-sm indicator-item">{Cards.length}</span>
+                
               </div>
             </div>
 
@@ -68,8 +69,8 @@ const Navbar = () => {
               className="card card-compact dropdown-content bg-base-100 mt-3 w-52 shadow"
             >
               <div className="card-body">
-                <span className="text-lg font-bold">7 Items</span>
-                <span className="text-info">Subtotal: $999</span>
+                <span className="text-lg font-bold">Items : {Cards.length} </span>
+                <span className="text-info">Subtotal: $ {totalPrice}</span>
               </div>
             </div>
           </div>

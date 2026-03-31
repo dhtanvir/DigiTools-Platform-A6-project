@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import "./App.css";
 import Banner from "./component/Banner/Banner";
 import BannerCount from "./component/Banner/BannerCount";
@@ -9,6 +9,7 @@ import Product from "./component/Product/Product";
 import ProductCard from "./component/Product/ProductCard";
 import StepsCard from "./component/Steps/StepsCard";
 import Transform from "./component/Transform/Transform";
+import Card from "./component/Product/Card";
 
 const getModelsData = async () => {
   const res = await fetch("/productData.json");
@@ -18,10 +19,16 @@ const getModelsData = async () => {
 function App() {
   const modelsPromise = getModelsData();
 
+  const [activeTab, setActiveTab] = useState("Product");
+
+  const [Cards, setCards] = useState([]);
+
+  const totalPrice = Cards.reduce((sum, card) => sum + card.price, 0);
+
   return (
     <>
       <header>
-        <Navbar />
+        <Navbar Cards={Cards} totalPrice={totalPrice} />
       </header>
       <main>
         <Banner />
@@ -29,14 +36,44 @@ function App() {
         {/*  */}
         <Product />
 
+        {/* name of each tab group should be unique */}
+        <div className="container mx-auto w-68  ">
+          <div className="tabs tabs-box rounded-full justify-center gap-2 ">
+            <input
+              type="radio"
+              name="my_tabs_1"
+              className="tab  px-8 py-2 rounded-full "
+              aria-label="Product"
+              onClick={() => setActiveTab("Product")}
+              defaultChecked
+            />
+            <input
+              type="radio"
+              name="my_tabs_1"
+              className="tab  px-8 py-2 rounded-full "
+              aria-label={`Card (${Cards.length})`}
+              onClick={() => setActiveTab("Card")}
+            />
+          </div>
+        </div>
+
         <Suspense
           fallback={
             <span className="loading loading-spinner text-primary"></span>
           }
         >
-          <ProductCard modelsPromise={modelsPromise}  />
-        </Suspense>
+          {activeTab === "Product" && (
+            <ProductCard
+              modelsPromise={modelsPromise}
+              Cards={Cards}
+              setCards={setCards}
+            />
+          )}
 
+          {activeTab === "Card" && (
+            <Card Cards={Cards} setCards={setCards} totalPrice={totalPrice} />
+          )}
+        </Suspense>
         {/*  */}
         <StepsCard />
         <PricingCard />

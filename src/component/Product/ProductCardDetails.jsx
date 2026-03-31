@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 
-const ProductCardDetails = ({ model }) => {
-  console.log(model);
+const ProductCardDetails = ({ model, Cards, setCards }) => {
 
   const { name, description, price, period, tag, features, icon } = model;
+
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
+  const handleSubscription = () => {
+    
+    setIsSubscribed(true);
+
+    setCards([model, ...Cards]);
+  };
 
   return (
     <div>
       <div className=" p-8">
-        <div className="relative w-full max-w-sm rounded-3xl 
-        border border-gray-100 bg-white p-8 shadow-sm space-y-5 ">
-          <div className={`absolute right-6 top-3 rounded-full  px-4 py-1 text-sm font-semibold  text-[#f3f7fa] 
-            ${tag === "new" ? "bg-blue-500" : tag === "best seller" ? "bg-green-500" : "bg-purple-500"}` }>
+        <div
+          className="relative w-full max-w-sm rounded-3xl 
+        border border-gray-100 bg-white p-8 shadow-sm space-y-5 "
+        >
+          <div
+            className={`absolute right-6 top-3 rounded-full  px-4 py-1 text-sm font-semibold  text-[#f3f7fa] 
+            ${tag === "new" ? "bg-blue-500" : tag === "best seller" ? "bg-green-500" : "bg-purple-500"}`}
+          >
             <p className="text-sm">{tag}</p>
           </div>
           <div className="w-12 h-12 flex items-center justify-center bg-amber-200 rounded-full">
@@ -39,9 +51,12 @@ const ProductCardDetails = ({ model }) => {
             ))}
           </div>
           <div>
-            <a className="btn w-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] rounded-full text-white text-sm md:text-base px-4 md:px-6">
-              Buy Now
-            </a>
+            <button
+              onClick={handleSubscription}
+              className="btn w-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] rounded-full text-white text-sm md:text-base px-4 md:px-6"
+            >
+              {isSubscribed ? "Sales Done" : "Buy Now"}
+            </button>
           </div>
         </div>
       </div>
