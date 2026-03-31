@@ -14,7 +14,7 @@ const Card = ({ Cards, totalPrice, setCards }) => {
 
   const handleCheckOut = () => {
     setCards([]);
-     toast.warning(" Proceed to Checked Out!");
+    toast.warning(" Proceed to Checked Out!");
   };
 
   return (
@@ -36,23 +36,23 @@ const Card = ({ Cards, totalPrice, setCards }) => {
               <div>
                 {Cards.map((card) => (
                   <div key={card.id}>
-                    <div className="bg-white rounded-2xl p-5 shadow-lg flex items-center justify-between gap-5 mt-5">
-                      <div className="flex items-center gap-2">
-                        <div className="w-12 h-12 flex items-center justify-center bg-amber-200 rounded-full">
+                    <div className="bg-white rounded-2xl p-5 shadow-lg flex  items-center justify-between gap-5 mt-5">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <div className="  w-12 h-12 flex items-center justify-center bg-amber-200 rounded-full">
                           <img
                             src={card.icon}
                             alt={card.name}
-                            className="w-8 h-8"
+                            className="w-8  h-8"
                           />
                         </div>
                         <div>
-                          <h3 className="text-2xl text-black font-bold">
+                          <h3 className="text-balance md:text-2xl text-black font-bold">
                             {card.name}
                           </h3>
                           <p className="text-gray-500">{card.description}</p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-10">
+                      <div className="flex flex-wrap items-center gap-10">
                         <h5 className="text-2xl font-bold text-black ">
                           ${card.price}
                           <samp className="text-base text-gray-400">

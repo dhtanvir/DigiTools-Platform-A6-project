@@ -60,13 +60,13 @@ const pricingData= [
     <div>
       <div className="container mx-auto py-20">
         <div className="text-center space-y-5 py-3">
-          <h1 className="text-5xl font-bold ">Simple, Transparent Pricing</h1>
+          <h1 className="text-3xl md:text-5xl font-bold ">Simple, Transparent Pricing</h1>
           <p className="text-balance ">
             Choose the plan that fits your needs. Upgrade or downgrade anytime.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-2 py-5 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-10 md:gap-2 py-5 ">
           {pricingData.map((item) => (
             <PricingCardDetails key={item.id} item={item} />
           ))}

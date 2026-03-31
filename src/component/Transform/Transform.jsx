@@ -6,7 +6,7 @@ const Transform = () => {
       <div className="bg-linear-to-r from-[#4F39F6] to-[#9514FA]">
         <div className="container mx-auto py-20 ">
           <div className="text-center space-y-5">
-            <h2 className="text-5xl font-bold text-white ">
+            <h2 className="text-2xl md:text-5xl font-bold text-white ">
               Ready to Transform Your Workflow?
             </h2>
             <p className="text-balance text-white/90 ">
@@ -29,8 +29,7 @@ const Transform = () => {
               View Pricing
             </button>
           </div>
-          <p className="text-cyan-100 text-center">
-            {" "}
+          <p className="text-cyan-100 text-center px-8">
             14-day free trial • No credit card required • Cancel anytime
           </p>
         </div>

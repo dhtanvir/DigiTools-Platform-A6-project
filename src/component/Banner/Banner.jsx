@@ -5,8 +5,8 @@ import { IoPlay } from "react-icons/io5";
 const Banner = () => {
   return (
     <div>
-      <div className="relative min-h-162.5 flex items-center overflow-hidden">
-        <div className=" mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
+      <div className="relative min-h-162.5 flex items-center overflow-hidden py-10 px-5">
+        <div className=" mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10 ">
           {/* Left Content */}
           <div className="space-y-4">
             <div className="inline-flex items-center gap-2 bg-[#E1E7FF] border border-[#E1E7FF] text- text-sm font-medium px-5 py-2 rounded-full">
